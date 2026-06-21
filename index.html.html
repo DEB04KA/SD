@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Кирилл Долиновский — DK стиль</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #edeef0;
+            color: #000;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .dk-wrapper {
+            max-width: 850px;
+            width: 100%;
+            background: #edeef0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .dk-header {
+            background: #4a76a8;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .dk-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        .dk-header .logo-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+        .dk-header .logo-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .dk-header .logo-avatar i {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+        }
+        .dk-menu {
+            display: flex;
+            gap: 8px 18px;
+            flex-wrap: wrap;
+        }
+        .dk-menu a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.15s;
+        }
+        .dk-menu a:hover {
+            color: white;
+            border-bottom-color: white;
+        }
+        .dk-menu a i {
+            margin-right: 6px;
+        }
+        .dk-body {
+            padding: 0 0 24px 0;
+        }
+        .profile-cover {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background: #8ba3c7;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .profile-cover .cover-placeholder {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .profile-cover .cover-placeholder i {
+            font-size: 3rem;
+        }
+        .profile-avatar-wrap {
+            position: absolute;
+            bottom: 5px;
+            left: 30px;
+            display: flex;
+            align-items: flex-end;
+            gap: 18px;
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            background: #d3d9e3;
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .profile-avatar i {
+            font-size: 3.5rem;
+            color: #6f7d94;
+        }
+        .profile-name {
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 6px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .profile-name h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .profile-name .sub {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        .profile-content {
+            padding: 95px 24px 10px 24px;
+        }
+        .dk-card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .dk-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .dk-card h3 i {
+            color: #4a76a8;
+        }
+        .info-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 24px;
+            font-size: 0.98rem;
+            padding: 4px 0;
+        }
+        .info-row i {
+            width: 22px;
+            color: #6f7d94;
+        }
+        .skill-tag {
+            display: inline-block;
+            background: #edeef0;
+            padding: 5px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 4px 6px 4px 0;
+        }
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 6px;
+        }
+        .social-links a {
+            background: #edeef0;
+            padding: 8px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .social-links a:hover {
+            background: #dce1e8;
+        }
+        .form-group {
+            margin-bottom: 14px;
+        }
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #d3d9e3;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: #fafbfc;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .btn-dk {
+            background: #4a76a8;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .btn-dk:hover {
+            background: #3a5f8a;
+        }
+        .footer-meta {
+            border-top: 1px solid #d3d9e3;
+            padding-top: 16px;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #6f7d94;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        @media (max-width: 600px) {
+            .profile-cover {
+                height: 180px;
+            }
+            .profile-avatar-wrap {
+                left: 16px;
+                bottom: 10px;
+            }
+            .profile-avatar {
+                width: 90px;
+                height: 90px;
+            }
+            .profile-name h2 {
+                font-size: 1.1rem;
+            }
+            .profile-name .sub {
+                font-size: 0.8rem;
+            }
+            .profile-name {
+                padding: 4px 12px;
+            }
+            .profile-content {
+                padding-top: 85px;
+            }
+            .dk-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 6px;
+            }
+            .dk-menu {
+                justify-content: space-around;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="dk-wrapper animate__animated animate__fadeIn">
+    <header class="dk-header">
+        <div class="logo">
+            <div class="logo-avatar">
+                <img src="sob.jmg.jpg" alt="DK" />
+            </div>
+            <span>DK</span>
+        </div>
+        <nav class="dk-menu">
+            <a href="#about"><i class="fas fa-user"></i> Обо мне</a>
+            <a href="#skills"><i class="fas fa-code"></i> Навыки</a>
+            <a href="#contact"><i class="fas fa-address-card"></i> Контакты</a>
+            <a href="#feedback"><i class="fas fa-comment"></i> Обратная связь</a>
+        </nav>
+    </header>
+    <div class="dk-body">
+        <div class="profile-cover">
+            <img src="vrt.jmg.jpg" alt="Фон профиля" id="coverImg" />
+            <div class="profile-avatar-wrap">
+                <div class="profile-avatar">
+                    <img src="stl.jpg" alt="Аватар" />
+                </div>
+                <div class="profile-name">
+                    <h2>Кирилл Владимирович Долиновский</h2>
+                    <div class="sub">19 лет · г. Иркутск</div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-content">
+            <section id="about" class="dk-card">
+                <h3><i class="fas fa-user-circle"></i> Обо мне</h3>
+                <div class="info-row">
+                    <span><i class="fas fa-graduation-cap"></i> ИРГУПС, 1 курс, ФУТИИТ</span>
+                    <span><i class="fas fa-code"></i> Программный инженер</span>
+                    <span><i class="fas fa-calendar-alt"></i> 23.05.2007 (19 лет)</span>
+                    <span><i class="fas fa-map-pin"></i> г. Иркутск</span>
+                </div>
+            </section>
+            <section id="skills" class="dk-card">
+                <h3><i class="fas fa-laptop-code"></i> Навыки</h3>
+                <div>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML / CSS</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </section>
+            <section id="contact" class="dk-card">
+                <h3><i class="fas fa-address-card"></i> Контакты</h3>
+                <div class="info-row">
+                    <span><i class="fas fa-envelope"></i> kdolinovskij@gmail.com</span>
+                    <span><i class="fas fa-phone-alt"></i> +7 (904) 146-28-22</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://vk.com/kirilldolinovskiy" target="_blank"><i class="fab fa-vk"></i> ВКонтакте</a>
+                    <a href="https://github.com/DEB04KA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </section>
+            <section id="feedback" class="dk-card">
+                <h3><i class="fas fa-paper-plane"></i> Обратная связь</h3>
+                <form action="#">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" placeholder="Введите ваше имя" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="ваш@email.ru" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="msg">Сообщение</label>
+                        <textarea id="msg" placeholder="Напишите что-то..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-dk"><i class="fas fa-paper-plane"></i> Отправить</button>
+                </form>
+            </section>
+            <div class="footer-meta">
+                <span><i class="fas fa-cube"></i> Плагины: Font Awesome · Google Fonts · Animate.css</span>
+                <span><i class="fas fa-check-circle" style="color:#4a76a8;"></i> 4 пункта меню · форма · соцсети</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
